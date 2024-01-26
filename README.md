@@ -14,4 +14,5 @@ Do wykonania zadania użyte zosttały mutexy oraz wątki z biblioteki `thread`. 
 ## Kompilacja i uruchomienie:
 W terminalu:
 `g++ -Wall port.cpp`
+
 Następnie uruchomienie pliku `a.out`
