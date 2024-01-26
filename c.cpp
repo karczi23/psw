@@ -38,8 +38,8 @@ struct Ship {
         if (availableSpace <= 0) {
             cout << "Ship " << i << " waiting for dock space, leaving harbor" << endl;
             dockMutex.unlock();
-	        std::this_thread::sleep_for(milliseconds((rand() % 2000) + 1000));
-	        return 0;
+	    std::this_thread::sleep_for(milliseconds((rand() % 2000) + 1000));
+	    return 0;
         }
     
         tugMutex.lock();
@@ -49,8 +49,8 @@ struct Ship {
             cout << "Ship " << i << " waiting for available tugs, leaving harbor" << endl;
             tugMutex.unlock();
             dockMutex.unlock();
-	        std::this_thread::sleep_for(milliseconds((rand() % 2000) + 1000));
-	        return 0;
+	    std::this_thread::sleep_for(milliseconds((rand() % 2000) + 1000));
+	    return 0;
         }
     
         availableTugs -= tugsNeeded;
@@ -59,14 +59,14 @@ struct Ship {
         tugMutex.unlock();
         dockMutex.unlock();
         
-	    cout << "Ship " << i << " is getting unpacked" << endl;
+	cout << "Ship " << i << " is getting unpacked" << endl;
         std::this_thread::sleep_for(seconds(10));
         
 	    tugMutex.lock();
         availableTugs += tugsNeeded;
         tugMutex.unlock();
         
-	    cout << "Ship " << i << ": unpacking done" << endl;
+	cout << "Ship " << i << ": unpacking done" << endl;
         return 1;
     }
     
@@ -83,7 +83,7 @@ struct Ship {
 void threadFn(int i) {
     Ship ship = Ship(i);
     do {
-	    cout << "Ship " << i << " entering dock" << endl;
+	cout << "Ship " << i << " entering dock" << endl;
     } while (!ship.enterDock());
     int sleepTime = (rand() % 13) + 2;
     cout << "Ship " << i << " sleeping for " << sleepTime << " seconds" << endl;
