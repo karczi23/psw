@@ -28,7 +28,7 @@ struct Ship {
     Ship(int _i) {
         i = _i;
         tugsNeeded = (((rand() % 25) + 5) / 10) + 1;
-        cout << "Ship " << i << " created, " << ", tugs needed: " << tugsNeeded << endl;
+        cout << "Ship " << i << " created, " << tugsNeeded << " tugs needed: " << endl;
     }
     
     bool enterDock() {
