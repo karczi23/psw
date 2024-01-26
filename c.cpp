@@ -62,7 +62,7 @@ struct Ship {
 	cout << "Ship " << i << " is getting unpacked" << endl;
         std::this_thread::sleep_for(seconds(10));
         
-	    tugMutex.lock();
+	tugMutex.lock();
         availableTugs += tugsNeeded;
         tugMutex.unlock();
         
